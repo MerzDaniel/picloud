@@ -6,16 +6,10 @@ RUN sudo apt-get install php5-sqlite php5-mysql smbclient curl libcurl3 php5-cur
 
 RUN sudo usermod -aG www-data www-data
 
-RUN sudo apt install wget
+ADD owncloud.tar.bz2 /var/www/html
 
-RUN wget "https://download.owncloud.org/community/owncloud-10.0.9.tar.bz2" -O /owncloud.tar.bz2
-RUN cd /var/www/html
+#RUN sudo chown -R www-data:www-data /var/www/html
+RUN find /var/www/owncloud \( \! -user www-data -o \! -group www-data \) -print0 | xargs -r -0 chown www-data:www-data
 
-RUN sudo apt install bzip2
-
-RUN sudo tar xfj /owncloud.tar.bz2 -C /var/www/html
-RUN sudo chown -R www-data:www-data /var/www/html
-# RUN sudo service apache2 start
 EXPOSE 80
 CMD /usr/sbin/apache2ctl -D FOREGROUND
-#RUN sudo service apache2 restart
