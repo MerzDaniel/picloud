@@ -1,0 +1,1 @@
+docker exec -it owncloud-on-pi_owncloud_1 bash
