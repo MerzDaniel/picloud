@@ -11,4 +11,5 @@ ADD owncloud.tar.bz2 /var/www/html
 RUN find /var/www/html/owncloud \( \! -user www-data -o \! -group www-data \) -print0 | xargs -r -0 chown www-data:www-data
 
 EXPOSE 80
-CMD /usr/sbin/apache2ctl -D FOREGROUND
+COPY resources/owncloud-start.sh owncloud-start.sh
+CMD /bin/bash owncloud-start.sh
