@@ -42,17 +42,13 @@ services:
       - files:/mnt/data
 
   db:
-    image: webhippie/mariadb:latest
+    image: yobasystems/alpine-mariadb:arm32v7
     restart: always
     environment:
-      - MARIADB_ROOT_PASSWORD=owncloud
-      - MARIADB_USERNAME=owncloud
-      - MARIADB_PASSWORD=owncloud
-      - MARIADB_DATABASE=owncloud
-      - MARIADB_MAX_ALLOWED_PACKET=128M
-      - MARIADB_INNODB_LOG_FILE_SIZE=64M
-      - MARIADB_INNODB_LARGE_PREFIX=ON
-      - MARIADB_INNODB_FILE_FORMAT=Barracuda
+      MYSQL_ROOT_PASSWORD: mysql-root-pass
+      MYSQL_DATABASE: owncloud
+      MYSQL_USER: owncloud
+      MYSQL_PASSWORD: owncloud
     healthcheck:
       test: ["CMD", "/usr/bin/healthcheck"]
       interval: 30s
@@ -63,7 +59,7 @@ services:
       - backup:/var/lib/backup
 
   redis:
-    image: webhippie/redis:armhf
+    image: arm32v7/redis
     restart: always
     environment:
       - REDIS_DATABASES=1
@@ -73,4 +69,4 @@ services:
       timeout: 10s
       retries: 5
     volumes:
-      - redis:/var/lib/redis
+      - redis:/data
