@@ -23,17 +23,13 @@ services:
       - redis
     env_file:
       - ./resources/db.env
-    environment:
-      - OWNCLOUD_UTF8MB4_ENABLED=true
-      - OWNCLOUD_REDIS_ENABLED=true
-      - OWNCLOUD_REDIS_HOST=redis
     healthcheck:
       test: ["CMD", "/usr/bin/healthcheck"]
       interval: 30s
       timeout: 10s
       retries: 5
     volumes:
-      - files:/mnt/data
+      - files:/var/www/html/owncloud
 
   db:
     image: yobasystems/alpine-mariadb:arm32v7
