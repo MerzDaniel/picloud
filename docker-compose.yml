@@ -1,7 +1,9 @@
 version: '3.7'
 
 volumes:
-  files:
+  owncloud_files:
+    driver: local
+  owncloud_page:
     driver: local
   mysql:
     driver: local
@@ -29,7 +31,8 @@ services:
       timeout: 10s
       retries: 5
     volumes:
-      - files:/var/www/html/owncloud
+      - owncloud_files:/mnt/data
+      - owncloud_page:/var/www/html/owncloud
 
   db:
     image: yobasystems/alpine-mariadb:arm32v7

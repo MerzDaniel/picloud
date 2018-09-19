@@ -1,7 +1,5 @@
 sudo chown -R www-data:www-data /var/www/html/owncloud
-
-# "datadirectory" doesn't seem to work? 
-#  "datadirectory" => "/mnt/data",
+sudo chown -R www-data:www-data /mnt/data
 
 cat > /var/www/html/owncloud/config/autoconfig.php << EOF
 <?php
@@ -10,6 +8,7 @@ cat > /var/www/html/owncloud/config/autoconfig.php << EOF
   "dbname" => "$MYSQL_DATABASE",
   "dbuser" => "$MYSQL_USER",
   "dbpass" => "$MYSQL_PASSWORD",
+  "directory" => "/mnt/data",
   "dbhost" => "db",
   "dbtableprefix" => "",
   "mysql.utf8mb4" => true,
