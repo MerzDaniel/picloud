@@ -1,12 +1,14 @@
 mkdir -p dist
 echo creating default config in ./dist/local.env...
 cat > dist/local.env << EOF 
-OWNCLOUD_DB_TYPE=mysql
-OWNCLOUD_DB_NAME=owncloud
-OWNCLOUD_DB_USERNAME=owncloud
-OWNCLOUD_DB_PASSWORD=owncloud
+# owncloud config
 OWNCLOUD_PASSWORDSALT=abcdef1234567890abcdef18273645
 OWNCLOUD_CREATELOCAL=true
+# db related
+MYSQL_ROOT_PASSWORD=mysql-root-pass
+MYSQL_DATABASE=owncloud
+MYSQL_USER=owncloud
+MYSQL_PASSWORD=owncloud
 EOF
 
 echo download owncloud...

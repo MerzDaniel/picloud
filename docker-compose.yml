@@ -34,11 +34,8 @@ services:
   db:
     image: yobasystems/alpine-mariadb:arm32v7
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: mysql-root-pass
-      MYSQL_DATABASE: owncloud
-      MYSQL_USER: owncloud
-      MYSQL_PASSWORD: owncloud
+    env_file:
+      - ./dist/local.env
     healthcheck:
       test: ["CMD", "/usr/bin/healthcheck"]
       interval: 30s

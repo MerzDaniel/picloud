@@ -3,15 +3,15 @@ sudo chown -R www-data:www-data /var/www/html/owncloud
 # "datadirectory" doesn't seem to work? 
 #  "datadirectory" => "/mnt/data",
 
+cat > /var/www/html/owncloud/config/autoconfig.php << EOF
 <?php
 \$AUTOCONFIG = array(
-  "dbtype" => "$OWNCLOUD_DB_TYPE",
-  "dbname" => "$OWNCLOUD_DB_NAME",
-  "dbuser" => "$OWNCLOUD_DB_USERNAME",
-  "dbpass" => "$OWNCLOUD_DB_PASSWORD",
+  "dbtype" => "mysql",
+  "dbname" => "$MYSQL_DATABASE",
+  "dbuser" => "$MYSQL_USER",
+  "dbpass" => "$MYSQL_PASSWORD",
   "dbhost" => "db",
-# "datadirectory" doesn't seem to work? 
-#  "datadirectory" => "/mnt/data",
+  "dbtableprefix" => "",
   "mysql.utf8mb4" => true,
   "passwordsalt" => "$OWNCLOUD_PASSWORDSALT",
   "memcache.distributed" => "\\OC\\Memcache\\Redis",
