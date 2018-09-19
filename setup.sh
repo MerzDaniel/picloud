@@ -4,6 +4,9 @@ cat > dist/local.env << EOF
 # owncloud config
 OWNCLOUD_PASSWORDSALT=abcdef1234567890abcdef18273645
 OWNCLOUD_CREATELOCAL=true
+OWNCLOUD_ADMIN=admin
+OWNCLOUD_ADMIN_PASS=admin
+
 # db related
 MYSQL_ROOT_PASSWORD=mysql-root-pass
 MYSQL_DATABASE=owncloud

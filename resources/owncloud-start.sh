@@ -9,6 +9,8 @@ cat > /var/www/html/owncloud/config/autoconfig.php << EOF
   "dbuser" => "$MYSQL_USER",
   "dbpass" => "$MYSQL_PASSWORD",
   "directory" => "/mnt/data",
+  "adminlogin" => "$OWNCLOUD_ADMIN",
+  "adminpass" => "$OWNCLOUD_ADMIN_PASS",
   "dbhost" => "db",
   "dbtableprefix" => "",
   "mysql.utf8mb4" => true,
