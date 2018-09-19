@@ -1,5 +1,7 @@
-cat > /var/www/html/owncloud/config/autoconfig.php << EOF
-# sudo chown www-data:www-data /mnt/data
+sudo chown -R www-data:www-data /var/www/html/owncloud
+
+# "datadirectory" doesn't seem to work? 
+#  "datadirectory" => "/mnt/data",
 
 <?php
 \$AUTOCONFIG = array(
