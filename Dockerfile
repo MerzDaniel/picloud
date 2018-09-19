@@ -6,7 +6,7 @@ RUN sudo apt-get install php5-sqlite php5-mysql smbclient curl libcurl3 php5-cur
 
 RUN sudo usermod -aG www-data www-data
 
-ADD owncloud.tar.bz2 /var/www/html
+ADD dist/owncloud.tar.bz2 /var/www/html
 
 RUN find /var/www/html/owncloud \( \! -user www-data -o \! -group www-data \) -print0 | xargs -r -0 chown www-data:www-data
 
