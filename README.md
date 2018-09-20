@@ -16,9 +16,10 @@ Starts ups 3 container:
 # Mounting local directories into owncloud
 - execute `setup_localstorage.sh`
 - modify `./dist/volumes.env` and `docker-compose.volumes.yml` as needed
-- run `docker-compose -f docker-compose.yml -f docker-compose.volumes.yml up -d`
-- `docker cp dist/volumes.env picloud_owncloud_1:/volumes.env`
-- `docker exec -it picloud_owncloud_1 bash`
-- `source volumes.env`
-- `source add_external_volumes.sh`
-- now the volumes will be mounted in owncloud. Only available for the "admin" user. In docker UI you can make the available for other users
+- run `./dup-local`
+- run `./cp-volumes`
+- run `./dbash`
+- now your are in the owncloud container
+-- `source volumes.env`
+-- `source add_external_volumes.sh`
+- now the volumes will be mounted in owncloud. Only available for the "admin" user. In docker UI you can make them available for other users

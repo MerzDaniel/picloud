@@ -1,0 +1,1 @@
+docker cp dist/volumes.env picloud_owncloud_1:/volumes.env
