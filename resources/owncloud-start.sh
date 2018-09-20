@@ -1,7 +1,9 @@
 sudo chown -R www-data:www-data /var/www/html/owncloud
 sudo chown -R www-data:www-data /mnt/data
 
-cat > /var/www/html/owncloud/config/autoconfig.php << EOF
+if [ ! -f /var/www/html/owncloud/config/config.php ]; then
+  
+  cat > /var/www/html/owncloud/config/autoconfig.php << EOF
 <?php
 \$AUTOCONFIG = array(
   "dbtype" => "mysql",
@@ -24,5 +26,6 @@ cat > /var/www/html/owncloud/config/autoconfig.php << EOF
   "files_external_allow_create_new_local" => "true",
 );
 EOF
+fi
 
 /usr/sbin/apache2ctl -D FOREGROUND
