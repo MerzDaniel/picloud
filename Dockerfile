@@ -8,5 +8,6 @@ RUN sudo usermod -aG www-data www-data
 
 ADD dist/owncloud.tar.bz2 /var/www/html
 COPY resources/owncloud-start.sh owncloud-start.sh
+COPY resources/add_external_volumes.sh add_external_volumes.sh
 
 CMD /bin/bash owncloud-start.sh
